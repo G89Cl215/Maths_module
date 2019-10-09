@@ -6,10 +6,11 @@
 /*   By: tgouedar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/02 13:08:40 by tgouedar          #+#    #+#             */
-/*   Updated: 2019/10/09 18:15:56 by tgouedar         ###   ########.fr       */
+/*   Updated: 2019/10/09 21:22:27 by tgouedar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "maths_dispatcher.h"
 #include "maths_def.h"
 
 
@@ -38,7 +39,7 @@ t_maths_op		g_maths[] =
 //	{">=", ft_cmpsupeq_test, CMP_PRIO},
 //	{"<", ft_cmpinf_test, CMP_PRIO},
 //	{">", ft_cmpsup_test, CMP_PRIO},
-//	{"+", ft_add, ADD_PRIO},
+	{"+", ft_add, ADD_PRIO},
 //	{"-", ft_sub, ADD_PRIO},
 //	{"*", ft_mul, MUL_PRIO},
 //	{"/", ft_div, MUL_PRIO},
@@ -89,7 +90,7 @@ t_ft_maths		*ft_op_func(char *op)
 	while ((g_maths[i].op))
 	{
 		if (!(ft_strcmp(g_maths[i].op, op)))
-			return (g_maths[i].ft_exec);
+			return (g_maths[i].ft_op);
 		i++;
 	}
 	return (NULL); //ne devrait jamais arriver 

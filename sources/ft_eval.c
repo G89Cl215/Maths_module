@@ -6,13 +6,18 @@
 /*   By: tgouedar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/09 11:33:24 by tgouedar          #+#    #+#             */
-/*   Updated: 2019/10/09 18:15:42 by tgouedar         ###   ########.fr       */
+/*   Updated: 2019/10/09 21:39:28 by tgouedar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "maths_interne.h"
 #include "libft.h"
+
+void	ft_print_ast(t_maths_ast *ast);
+
+
+
 
 char	*ft_construct_expansion(char *arg, char *expansion, size_t var_pos,
 																size_t var_len)
@@ -32,20 +37,25 @@ char	*ft_construct_expansion(char *arg, char *expansion, size_t var_pos,
 
 int			ft_eval(char *expr, int64_t *res)
 {
-	int				sig;
+//	int				sig;
 	t_list			*list;
 	t_maths_ast		*ast;
 
 	*res = 0;
+		ft_putendl("\navant lexer");
 	if (!(list = ft_maths_lexer(expr)))
-		return (CONV_SUCCESS);
+		return (CONV_FAIL);
+	ft_putendl("apres lexer\n");
 	//ft_unary_op(list); //suite de + et de -
 	ast = ft_new_mathast_node(list);
-	if ((sig = ft_build_ast(ast)) || (sig = eval_expression(ast, res)))
+	if (ft_build_ast(ast) == CONV_FAIL)// || (sig = eval_expression(ast, res)))
 	{
+		ft_putendl("ast fail");
 //		print_errror(sig); syntax error, DIV par zero, error de var
 		return (CONV_FAIL);
 	}
+	ft_putendl("ast succes finish");
+	ft_print_ast(ast);
 	return (CONV_SUCCESS);
 }
 
@@ -68,7 +78,7 @@ char		*ft_eval_inner_parentheses(char *expr)
 		}
 		res = ft_itoa64(conv);
 		res = ft_construct_expansion(expr, res, inner_par, len + 1);
-		ft_strdel(&expr);
+//		ft_strdel(&expr);
 		return (res);
 	}
 	else

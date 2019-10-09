@@ -6,7 +6,7 @@
 /*   By: tgouedar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/02 14:35:39 by tgouedar          #+#    #+#             */
-/*   Updated: 2019/10/09 17:52:32 by tgouedar         ###   ########.fr       */
+/*   Updated: 2019/10/09 21:22:42 by tgouedar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,12 +46,12 @@
 # define CONV_SUCCESS	1
 # define CONV_FAIL		0
 
-typedef int				(t_ft_maths)(void *, void *);
+typedef int64_t			(t_ft_maths)(int64_t , int64_t );
 
 typedef struct			s_maths_op
 {
 	char				*op;
-	t_ft_maths			*ft_exec;
+	t_ft_maths			*ft_op;
 	int					priority;
 }						t_maths_op;
 
@@ -63,7 +63,7 @@ typedef struct			s_maths_token
 
 typedef struct			s_maths_ast
 {
-	t_list				tokens;
+	t_list				*tokens;
 	int64_t				res;
 	t_ft_maths			*calc_func;
 	struct s_maths_ast	*left_cmd;

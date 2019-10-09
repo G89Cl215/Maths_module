@@ -6,11 +6,12 @@
 /*   By: tgouedar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/09 13:30:02 by tgouedar          #+#    #+#             */
-/*   Updated: 2019/10/09 18:12:26 by tgouedar         ###   ########.fr       */
+/*   Updated: 2019/10/09 20:08:46 by tgouedar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include "libft_add.h"
 #include "maths_interne.h"
 
 static int64_t	ft_atoi64_base(char *nbr, const char *base)

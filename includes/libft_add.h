@@ -1,22 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   maths_disptcher.h                                  :+:      :+:    :+:   */
+/*   libft_add.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tgouedar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/02 13:08:38 by tgouedar          #+#    #+#             */
-/*   Updated: 2019/10/02 13:13:15 by tgouedar         ###   ########.fr       */
+/*   Created: 2019/10/09 19:57:55 by tgouedar          #+#    #+#             */
+/*   Updated: 2019/10/09 20:08:20 by tgouedar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MATHS_DISPATCHER
-# define MATHS_DISPATCHER
+#ifndef LIBFT_ADD_H
+# define LIBFT_ADD_H
 
-typedef struct		s_maths
-{
-	char			*op;
-	int				*ft_op(long, long);
-}					t_maths;
+void	ft_strlower(char *str);
+int				ft_isnumber_base(char *to_test, const char *base);
 
 #endif

@@ -6,11 +6,12 @@
 /*   By: tgouedar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/09 11:41:38 by tgouedar          #+#    #+#             */
-/*   Updated: 2019/10/09 18:28:16 by tgouedar         ###   ########.fr       */
+/*   Updated: 2019/10/09 20:09:32 by tgouedar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "maths_interne.h"
+#include "libft_add.h"
 
 int				ft_isnumber(char *to_test)
 {

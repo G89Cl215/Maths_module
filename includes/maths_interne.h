@@ -6,7 +6,7 @@
 /*   By: tgouedar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/09 15:01:05 by tgouedar          #+#    #+#             */
-/*   Updated: 2019/10/09 18:05:46 by tgouedar         ###   ########.fr       */
+/*   Updated: 2019/10/09 20:51:36 by tgouedar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,8 @@ int				ft_int64_convert(int64_t *value, char *expr, char *base);
 void			ft_unary_op(t_list *list);
 int				ft_get_op_priority(char *op);
 size_t			ft_op_len(char *word);
-void			ft_push_tokens(char *word, t_list *token_list);
+t_ft_maths		*ft_op_func(char *op);
+void			ft_push_tokens(char *word, t_list **token_list);
 t_list			*ft_maths_lexer(char *expr);
 t_maths_token	*ft_init_maths_token(char *word, size_t token_len, char flag);
 int				ft_arg_value(char *token, int64_t *value);

@@ -6,7 +6,7 @@
 /*   By: tgouedar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/02 16:22:17 by tgouedar          #+#    #+#             */
-/*   Updated: 2019/10/09 18:19:36 by tgouedar         ###   ########.fr       */
+/*   Updated: 2019/10/09 20:57:45 by tgouedar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static size_t	ft_arg_len(char *word)
 	return (i);
 }
 
-void			ft_push_tokens(char *word, t_list *token_list)
+void			ft_push_tokens(char *word, t_list **token_list)
 {
 	size_t			i;
 	char			flag;
@@ -31,6 +31,7 @@ void			ft_push_tokens(char *word, t_list *token_list)
 	token = NULL;
 	while (*word)
 	{
+		ft_putendl(word);
 		if (ft_isin(*word, OPERATOR))
 		{
 			i = ft_op_len(word);
@@ -42,9 +43,10 @@ void			ft_push_tokens(char *word, t_list *token_list)
 			flag = IS_ARG;
 		}
 		token = ft_init_maths_token(word, i, flag);
-		ft_lstadd_back(&token_list, ft_lstnew(token, sizeof(t_maths_token)));
+		ft_lstadd_back(token_list, ft_lstnew(token, sizeof(t_maths_token)));
 		word += i;
 	}
+	ft_putendl(NULL);
 }
 
 t_list			*ft_maths_lexer(char *expr)
@@ -58,7 +60,7 @@ t_list			*ft_maths_lexer(char *expr)
 	words = ft_strsplit(expr, IFS);
 	while (words[i])
 	{
-		ft_push_tokens(words[i], token_list);
+		ft_push_tokens(words[i], &token_list);
 		i++;
 	}
 //	ft_tabfree(words);
