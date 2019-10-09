@@ -6,11 +6,12 @@
 /*   By: tgouedar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/09 19:54:01 by tgouedar          #+#    #+#             */
-/*   Updated: 2019/10/09 20:03:36 by tgouedar         ###   ########.fr       */
+/*   Updated: 2019/10/09 22:17:06 by tgouedar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include "libft_add.h"
 
 void	ft_strlower(char *str)
 {

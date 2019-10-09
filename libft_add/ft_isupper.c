@@ -1,20 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft_add.h                                        :+:      :+:    :+:   */
+/*   ft_isupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tgouedar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/09 19:57:55 by tgouedar          #+#    #+#             */
-/*   Updated: 2019/10/09 22:16:19 by tgouedar         ###   ########.fr       */
+/*   Created: 2019/10/09 22:13:04 by tgouedar          #+#    #+#             */
+/*   Updated: 2019/10/09 22:15:07 by tgouedar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_ADD_H
-# define LIBFT_ADD_H
+#include "libft.h"
 
-void	ft_strlower(char *str);
-int		ft_isupper(char c);
-int				ft_isnumber_base(char *to_test, const char *base);
-
-#endif
+int		ft_isupper(char c)
+{
+	return (ft_btw(c, 'A', 'Z'));
+}

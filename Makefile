@@ -6,7 +6,7 @@
 #    By: tgouedar <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/05 22:11:12 by tgouedar          #+#    #+#              #
-#    Updated: 2019/10/09 21:04:55 by tgouedar         ###   ########.fr        #
+#    Updated: 2019/10/09 22:14:47 by tgouedar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,6 +23,7 @@ SRCFILE			=	maths_expansion.c \
 addition.c \
 
 LIBFILE			=	ft_strlower.c \
+					ft_isupper.c
 
 SRC_DIR			=	sources
 LIBDIR			=	libft_add
