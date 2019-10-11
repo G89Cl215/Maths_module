@@ -6,7 +6,7 @@
 /*   By: tgouedar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/09 11:33:24 by tgouedar          #+#    #+#             */
-/*   Updated: 2019/10/11 14:33:53 by tgouedar         ###   ########.fr       */
+/*   Updated: 2019/10/11 17:41:04 by tgouedar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,12 @@ int		ft_eval_ast(t_maths_ast *ast, int64_t *res)
 {
 	if ((ast->calc_func))
 		return (ast->calc_func(ast->left_cmd, ast->right_cmd, res));
-	ft_putstr("\nEvaluation du token: ");
+
+	{
+		ft_putstr("\nEvaluation du token: ");
 	ft_putendl(((t_maths_token*)ast->tokens->content)->token);
+	}
+	if ()
 	return (ft_arg_value(((t_maths_token*)ast->tokens->content)->token, res));
 }
 
@@ -48,9 +52,12 @@ int			ft_eval(char *expr, int64_t *res)
 	t_maths_ast		*ast;
 
 	*res = 0;
-		ft_putendl("\navant lexer");
+
+	ft_putendl("\navant lexer");
+
 	if (!(list = ft_maths_lexer(expr)))
 		return (CONV_FAIL);
+
 	ft_putendl("apres lexer\n");
 	//ft_unary_op(list); //suite de + et de -
 	ast = ft_new_mathast_node(list);
