@@ -6,7 +6,7 @@
 /*   By: tgouedar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/02 13:08:40 by tgouedar          #+#    #+#             */
-/*   Updated: 2019/10/09 21:22:27 by tgouedar         ###   ########.fr       */
+/*   Updated: 2019/10/11 15:13:54 by tgouedar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,27 +28,27 @@ t_maths_op		g_maths[] =
 //	{"|=", ft_bitwiseor_assign, ASSIGN_PRIO},
 //	{"++", ft_incr, INCR_PRIO},
 //	{"--", ft_decr, DECR_PRIO},
-//	{"**", ft_exp, EXP_PRIO},
-//	{">>", ft_r_shift, SH_PRIO},
-//	{"<<", ft_l_shift, SH_PRIO},
-//	{"||", ft_logic_or, LOGOR_PRIO},
-//	{"&&", ft_logic_and, LOGAND_PRIO},
-//	{"!=", ft_diff_test, EQ_PRIO},
-//	{"==", ft_eq_test, EQ_PRIO},
-//	{"<=", ft_cmpinfeq_test, CMP_PRIO},
-//	{">=", ft_cmpsupeq_test, CMP_PRIO},
-//	{"<", ft_cmpinf_test, CMP_PRIO},
-//	{">", ft_cmpsup_test, CMP_PRIO},
+	{"**", ft_exp, EXP_PRIO},
+	{">>", ft_r_shift, SH_PRIO},
+	{"<<", ft_l_shift, SH_PRIO},
+	{"||", ft_logic_or, LOGOR_PRIO},
+	{"&&", ft_logic_and, LOGAND_PRIO},
+	{"!=", ft_diff_test, EQ_PRIO},
+	{"==", ft_eq_test, EQ_PRIO},
+	{"<=", ft_cmpinfeq_test, CMP_PRIO},
+	{">=", ft_cmpsupeq_test, CMP_PRIO},
+	{"<", ft_cmpinf_test, CMP_PRIO},
+	{">", ft_cmpsup_test, CMP_PRIO},
 	{"+", ft_add, ADD_PRIO},
-//	{"-", ft_sub, ADD_PRIO},
-//	{"*", ft_mul, MUL_PRIO},
-//	{"/", ft_div, MUL_PRIO},
-//	{"%", ft_mod, MUL_PRIO},
-//	{"!", ft_log_neg, NEG_PRIO},
-//	{"~", ft_bitwise_neg, NEG_PRIO},
-//	{"|", ft_bitwise_or, BWAND_PRIO},
-//	{"&", ft_bitwise_and, BWOR_PRIO},
-//	{"^", ft_bitwise_xor, BWXOR_PRIO},
+	{"-", ft_sub, ADD_PRIO},
+	{"*", ft_mul, MUL_PRIO},
+	{"/", ft_div, MUL_PRIO},
+	{"%", ft_mod, MUL_PRIO},
+	{"!", ft_logic_neg, NEG_PRIO},
+	{"~", ft_bitwise_neg, NEG_PRIO},
+	{"|", ft_bitwise_or, BWAND_PRIO},
+	{"&", ft_bitwise_and, BWOR_PRIO},
+	{"^", ft_bitwise_xor, BWXOR_PRIO},
 	{NULL, NULL, 0}
 };
 
@@ -63,7 +63,7 @@ int		ft_get_op_priority(char *op)
 			return (g_maths[i].priority);
 		i++;
 	}
-	return (0); //ne devrait jamais arriver ?? si ( et )
+	return (0);
 }
 
 size_t		ft_op_len(char *word)
@@ -79,7 +79,7 @@ size_t		ft_op_len(char *word)
 			return (len);
 		i++;
 	}
-	return (1); //ne devrait jamais arriver ?? si ( et )
+	return (1);
 }
 
 t_ft_maths		*ft_op_func(char *op)
@@ -93,6 +93,6 @@ t_ft_maths		*ft_op_func(char *op)
 			return (g_maths[i].ft_op);
 		i++;
 	}
-	return (NULL); //ne devrait jamais arriver 
+	return (NULL);
 
 }

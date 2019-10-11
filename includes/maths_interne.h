@@ -6,7 +6,7 @@
 /*   By: tgouedar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/09 15:01:05 by tgouedar          #+#    #+#             */
-/*   Updated: 2019/10/09 20:51:36 by tgouedar         ###   ########.fr       */
+/*   Updated: 2019/10/11 12:32:45 by tgouedar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ t_maths_token	*ft_init_maths_token(char *word, size_t token_len, char flag);
 int				ft_arg_value(char *token, int64_t *value);
 char			*ft_itoa64(int64_t nb);
 int				ft_build_ast(t_maths_ast *ast);
+int				ft_eval_ast(t_maths_ast *ast, int64_t *res);
 t_maths_ast		*ft_new_mathast_node(t_list *tokens);
 int				eval_expression(t_maths_ast *, int64_t *); // a ecrire
 

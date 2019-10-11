@@ -6,7 +6,7 @@
 /*   By: tgouedar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/09 11:41:38 by tgouedar          #+#    #+#             */
-/*   Updated: 2019/10/09 20:09:32 by tgouedar         ###   ########.fr       */
+/*   Updated: 2019/10/11 12:23:43 by tgouedar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,10 +62,11 @@ static int		ft_arg_value_base(char *base, char *nbr, int64_t *value)
 	}
 	ft_memcpy(conv_base, BASE, base_len);
 	conv_base[base_len] = '\0';
+	ft_putstr("On trouve la base: ");
+	ft_putendl(conv_base);
 	if (base_len < 37)
 		ft_strlower(nbr);
-	*value = ft_int64_convert(value, nbr, conv_base);
-	return (CONV_SUCCESS);
+	return (ft_int64_convert(value, nbr, conv_base));
 }
 
 int				ft_arg_value(char *token, int64_t *value)
@@ -74,7 +75,11 @@ int				ft_arg_value(char *token, int64_t *value)
 
 	*value = 0;
 	if ((expr = ft_strchr(token, '#')))
+	{
+		ft_putendl("Reconnaissance de base");
 		return (ft_arg_value_base(token, expr, value));
+	}
+	
 	if (ft_isdigit(*token))
 		return (ft_int64_convert(value, token, NULL));
 //	expr = get_var(token);

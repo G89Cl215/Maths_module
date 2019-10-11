@@ -6,7 +6,7 @@
 /*   By: tgouedar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/09 11:33:24 by tgouedar          #+#    #+#             */
-/*   Updated: 2019/10/09 22:52:17 by tgouedar         ###   ########.fr       */
+/*   Updated: 2019/10/11 14:33:53 by tgouedar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,18 +18,11 @@ void	ft_print_ast(t_maths_ast *ast);
 
 int		ft_eval_ast(t_maths_ast *ast, int64_t *res)
 {
-	int64_t		left;
-	int64_t		right;
-
 	if ((ast->calc_func))
-	{
-		ft_eval_ast(ast->left_cmd, &left);
-		ft_eval_ast(ast->right_cmd, &right); //ATTENTION CECI EST PROVISOIRE ->|| et && sont parresseux !!!!!!! -> pas d'exec auto sur droite -> calc_func doit gerer l'exec de droite est de gauche !!!!
-		*res = ast->calc_func(left, right);
-		return (CONV_SUCCESS);
-	}
-	else
-		return (ft_arg_value(((t_maths_token*)ast->tokens->content)->token, res));
+		return (ast->calc_func(ast->left_cmd, ast->right_cmd, res));
+	ft_putstr("\nEvaluation du token: ");
+	ft_putendl(((t_maths_token*)ast->tokens->content)->token);
+	return (ft_arg_value(((t_maths_token*)ast->tokens->content)->token, res));
 }
 
 char	*ft_construct_expansion(char *arg, char *expansion, size_t var_pos,
@@ -61,14 +54,32 @@ int			ft_eval(char *expr, int64_t *res)
 	ft_putendl("apres lexer\n");
 	//ft_unary_op(list); //suite de + et de -
 	ast = ft_new_mathast_node(list);
-	if (ft_build_ast(ast) == CONV_FAIL || ft_eval_ast(ast, res) == CONV_FAIL)
+
 	{
-		ft_putendl("ast fail");
+	ft_putendl("=== LIST ===");
+	while (list)
+	{
+		ft_putendl(((t_maths_token*)list->content)->token);
+		list = list->next;
+	}
+
+	ft_putendl("=== END ===");
+	}
+
+	if (ft_build_ast(ast) == CONV_FAIL)
+	{
+		ft_putendl("ast build fail");
 //		print_errror(sig); syntax error, DIV par zero, error de var
 		return (CONV_FAIL);
 	}
 	ft_putendl("ast succes finish");
 	ft_print_ast(ast);
+	if (ft_eval_ast(ast, res) == CONV_FAIL)
+	{
+		ft_putendl("ast eval fail");
+//		print_errror(sig); syntax error, DIV par zero, error de var
+		return (CONV_FAIL);
+	}
 	return (CONV_SUCCESS);
 }
 

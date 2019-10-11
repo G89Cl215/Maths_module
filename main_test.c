@@ -6,7 +6,7 @@
 /*   By: tgouedar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/09 18:34:42 by tgouedar          #+#    #+#             */
-/*   Updated: 2019/10/09 21:52:52 by tgouedar         ###   ########.fr       */
+/*   Updated: 2019/10/11 17:34:24 by tgouedar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ void	ft_print_ast(t_maths_ast *ast)
 
 	if ((ast))
 	{
+		ft_print_ast(ast->left_cmd);
 		ft_putstr("node nbr: ");
 		ft_putnbr(i);
 		ft_putstr("		value: ");
@@ -28,7 +29,6 @@ void	ft_print_ast(t_maths_ast *ast)
 		else
 			ft_putendl("operateur");
 		i++;
-		ft_print_ast(ast->left_cmd);
 		ft_print_ast(ast->right_cmd);
 	}
 }
@@ -36,7 +36,14 @@ void	ft_print_ast(t_maths_ast *ast)
 
 int		main(int ac, char **av)
 {
+	char	*res;
+
 	if (ac > 1)
-		printf("%s = %s\n", av[1], ft_maths_expansion(av[1]));
+	{
+		if (ft_maths_expansion(av[1], &res) == MATHS_SUCCESS)
+			printf("RES = %s\n", res);
+		else
+			printf("ERROR\n");
+	}
 	return (0);
 }

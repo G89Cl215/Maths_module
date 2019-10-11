@@ -6,37 +6,45 @@
 /*   By: tgouedar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/02 14:48:38 by tgouedar          #+#    #+#             */
-/*   Updated: 2019/10/09 20:43:33 by tgouedar         ###   ########.fr       */
+/*   Updated: 2019/10/11 17:31:50 by tgouedar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "maths_interne.h"
+#include "maths_module.h"
+
+
+#include <stdio.h>
 
 
 
 
-
-
-char		*ft_maths_expansion(char *expr)
+int			ft_maths_expansion(char *to_expand, char **expansion)
 {
 	int				par;
 	int64_t			res;
 
+	*expansion = NULL;
 	ft_putendl("entree d'extension");
-	if ((par = ft_parentheses_nbr(expr)) < 0)
+	if ((par = ft_parentheses_nbr(to_expand)) < 0)
 	{
 //		print_errror(PARENTHES_NBR || BRACKET_NBR);
-		return (NULL);
+		return (MATHS_ERROR);
 	}
 	ft_putendl("fin de parenthese test");
 	while (par > 0)
 	{
-		ft_putendl("avant eval inter_parenthes");
-		expr = ft_eval_inner_parentheses(expr);
-		ft_putendl("apres eval inter_parenthes");
+		ft_putendl("\navant eval inter_parenthes");
+		to_expand = ft_eval_inner_parentheses(to_expand);
+		ft_putendl("apres eval inter_parenthes\n");
 		par--;
 	}
-	if (ft_eval(expr, &res) == CONV_FAIL)
-		return (NULL);
-	return (ft_itoa64(res));
+	ft_putendl("\nEvalution de l'exepresion principale");
+	if (ft_eval(to_expand, &res) == CONV_FAIL)
+		return (MATHS_ERROR);
+	ft_putendl("\nReussite de l'evaluation");
+	ft_putstr("valeur en sortie: ");
+	printf("%lli\n", res);
+	*expansion = ft_itoa64(res);
+	return (MATHS_SUCCESS);
 }

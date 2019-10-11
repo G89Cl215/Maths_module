@@ -6,7 +6,7 @@
 #    By: tgouedar <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/05 22:11:12 by tgouedar          #+#    #+#              #
-#    Updated: 2019/10/09 22:14:47 by tgouedar         ###   ########.fr        #
+#    Updated: 2019/10/11 14:23:43 by tgouedar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,6 +21,12 @@ SRCFILE			=	maths_expansion.c \
 					ft_build_ast.c\
 					ft_itoa64.c \
 addition.c \
+multiplication.c \
+compare.c \
+equality_test.c \
+logic.c \
+bitwise_shifts.c \
+bitwise.c \
 
 LIBFILE			=	ft_strlower.c \
 					ft_isupper.c

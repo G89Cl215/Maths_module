@@ -6,7 +6,7 @@
 /*   By: tgouedar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/02 14:35:39 by tgouedar          #+#    #+#             */
-/*   Updated: 2019/10/09 21:22:42 by tgouedar         ###   ########.fr       */
+/*   Updated: 2019/10/11 14:32:27 by tgouedar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@
 # define HEX_BASE "0123456789abcdef"
 # define IFS			" \t"
 # define OPERATOR		"+-*/%=<>&|(),^!~"
-//# define OPERATOR		"++--"
 
 # define IS_OP			1
 # define IS_ARG			0
@@ -30,6 +29,7 @@
 # define POSTCR_PRIO	1
 # define PRECR_PRIO		2
 # define NEG_PRIO		3
+# define EXP_PRIO		3
 # define MUL_PRIO		5
 # define ADD_PRIO		6
 # define SH_PRIO		7
@@ -46,7 +46,7 @@
 # define CONV_SUCCESS	1
 # define CONV_FAIL		0
 
-typedef int64_t			(t_ft_maths)(int64_t , int64_t );
+typedef int				(t_ft_maths)(void *, void *, int64_t *);
 
 typedef struct			s_maths_op
 {

@@ -6,39 +6,12 @@
 /*   By: tgouedar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/09 15:51:16 by tgouedar          #+#    #+#             */
-/*   Updated: 2019/10/09 21:37:33 by tgouedar         ###   ########.fr       */
+/*   Updated: 2019/10/11 12:26:28 by tgouedar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "maths_interne.h"
-
-//int				ft_parse_into_struct(t_meta_parse *to_parse, char flag)
-//{
-//	t_list		*voyager;
-//	t_list		*end_of_cmd;
-//
-//	if (!(end_of_cmd = to_parse->tokens)
-//	&& flag != NO_DELIM && flag != SEMI_COL)
-//		return (1); // erreur de parsing -> une des section de la commande en bout de ligne est vide
-//	if (!(voyager = ft_priority_meta(to_parse->tokens, &flag)))
-//		return (0);
-//	ft_putendl("\n ON DETECTE LES METACHARS");
-//	to_parse->exec_func = ft_meta_function(voyager->delim);
-//	to_parse->right_cmd = ft_new_parse_struct(voyager->next);
-//	if (voyager == end_of_cmd)
-//		return (1); //erreur de parsing -> on commence par un metachar / deux meta d'affilee
-//	else
-//	{
-//		while (end_of_cmd->next != voyager)
-//			end_of_cmd = end_of_cmd->next;
-//		end_of_cmd->next = NULL;
-//	}
-//	ft_listfreeone(&voyager);
-//	to_parse->left_cmd = ft_new_parse_struct(to_parse->tokens);
-//	to_parse->tokens = NULL;
-//	return (ft_parse_into_struct(to_parse->left_cmd, flag) || ft_parse_into_struct(to_parse->right_cmd, flag));
-//}
 
 t_maths_ast		*ft_new_mathast_node(t_list *tokens)
 {

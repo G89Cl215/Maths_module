@@ -6,7 +6,7 @@
 /*   By: tgouedar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/09 13:30:02 by tgouedar          #+#    #+#             */
-/*   Updated: 2019/10/09 20:08:46 by tgouedar         ###   ########.fr       */
+/*   Updated: 2019/10/11 12:35:50 by tgouedar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,24 @@
 #include "libft_add.h"
 #include "maths_interne.h"
 
+#include <stdio.h>
+
+
+
+
 static int64_t	ft_atoi64_base(char *nbr, const char *base)
 {
+	int64_t		base_len;
 	int64_t		res;
 	size_t		i;
 
 	res = 0;
+	base_len = ft_strlen(base);
 	while (*nbr)
 	{
 		i = ft_indice(*nbr, base);
-		res = res * 10 + i;
+		res = res * base_len + i;
+		printf("digit: %c indice: %zu in base: %s gives res: %lli\n", *nbr, i, base, res);
 		nbr++;
 	}
 	return (res);
@@ -54,6 +62,8 @@ int				ft_int64_convert(int64_t *value, char *expr, char *base)
 //		print_error("value too great for base");
 		return (CONV_FAIL);
 	}
+	printf("is number base: %s in base: %s\n", expr, base);
 	*value = ft_atoi64_base(expr, base);
+	printf("value_ft_64_convert: %lli\n", *value);
 	return (CONV_SUCCESS);
 }
