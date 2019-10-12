@@ -6,7 +6,7 @@
 /*   By: tgouedar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/02 13:08:38 by tgouedar          #+#    #+#             */
-/*   Updated: 2019/10/11 14:37:04 by tgouedar         ###   ########.fr       */
+/*   Updated: 2019/10/12 14:30:11 by tgouedar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,5 +42,7 @@ int				ft_bitwise_neg(void *left_cmd, void *right_cmd, int64_t *res);
 int				ft_bitwise_and(void *left_cmd, void *right_cmd, int64_t *res);
 int				ft_bitwise_or(void *left_cmd, void *right_cmd, int64_t *res);
 int				ft_bitwise_xor(void *left_cmd, void *right_cmd, int64_t *res);
+
+int				ft_comma(void *left_cmd, void *right_cmd, int64_t *res);
 
 #endif

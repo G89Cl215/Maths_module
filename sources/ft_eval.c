@@ -6,7 +6,7 @@
 /*   By: tgouedar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/09 11:33:24 by tgouedar          #+#    #+#             */
-/*   Updated: 2019/10/11 17:41:04 by tgouedar         ###   ########.fr       */
+/*   Updated: 2019/10/12 19:13:03 by tgouedar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,34 @@
 #include "maths_interne.h"
 #include "libft.h"
 
+#include <stdio.h>
+
+
+
+
 void	ft_print_ast(t_maths_ast *ast);
 
-int		ft_eval_ast(t_maths_ast *ast, int64_t *res)
+int		ft_eval_ast(t_maths_ast *ast, int64_t *res, char flag)
 {
 	if ((ast->calc_func))
 		return (ast->calc_func(ast->left_cmd, ast->right_cmd, res));
 
+	if (ast->tokens)
 	{
 		ft_putstr("\nEvaluation du token: ");
-	ft_putendl(((t_maths_token*)ast->tokens->content)->token);
+	if (((t_maths_token*)ast->tokens->content)->token)
+		ft_putendl(((t_maths_token*)ast->tokens->content)->token);
+	else
+		ft_putendl("vide");
 	}
-	if ()
-	return (ft_arg_value(((t_maths_token*)ast->tokens->content)->token, res));
+	if (ast->tokens && (t_maths_token*)ast->tokens->content && flag != NO_TOKEN)
+		return (ft_arg_value(((t_maths_token*)ast->tokens->content)->token, res));
+	if (flag != MANDATORY_TOKEN)
+	{
+		*res = 0;
+		return (CONV_SUCCESS);
+	}
+	return (CONV_FAIL);
 }
 
 char	*ft_construct_expansion(char *arg, char *expansion, size_t var_pos,
@@ -48,7 +63,7 @@ char	*ft_construct_expansion(char *arg, char *expansion, size_t var_pos,
 int			ft_eval(char *expr, int64_t *res)
 {
 //	int				sig;
-	t_list			*list;
+	t_maths_list	*list;
 	t_maths_ast		*ast;
 
 	*res = 0;
@@ -73,7 +88,7 @@ int			ft_eval(char *expr, int64_t *res)
 	ft_putendl("=== END ===");
 	}
 
-	if (ft_build_ast(ast) == CONV_FAIL)
+	if (ft_build_ast(ast, POSSIBLY_TOKEN) == CONV_FAIL)
 	{
 		ft_putendl("ast build fail");
 //		print_errror(sig); syntax error, DIV par zero, error de var
@@ -81,7 +96,8 @@ int			ft_eval(char *expr, int64_t *res)
 	}
 	ft_putendl("ast succes finish");
 	ft_print_ast(ast);
-	if (ft_eval_ast(ast, res) == CONV_FAIL)
+	printf("DEPTH : %zu\n", ft_ast_depth(ast));
+	if (ft_eval_ast(ast, res, NO_FLAG) == CONV_FAIL)
 	{
 		ft_putendl("ast eval fail");
 //		print_errror(sig); syntax error, DIV par zero, error de var

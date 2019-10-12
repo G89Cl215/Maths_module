@@ -6,27 +6,29 @@
 #    By: tgouedar <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/05 22:11:12 by tgouedar          #+#    #+#              #
-#    Updated: 2019/10/11 14:23:43 by tgouedar         ###   ########.fr        #
+#    Updated: 2019/10/12 14:30:45 by tgouedar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRCFILE			=	maths_expansion.c \
+					maths_dispatcher.c \
 					ft_eval.c \
 					ft_int64_convert.c \
-					maths_dispatcher.c \
 					maths_lexer.c \
 					maths_token.c \
 					operand_token.c \
 					parentheses.c \
 					ft_build_ast.c\
 					ft_itoa64.c \
-addition.c \
-multiplication.c \
-compare.c \
-equality_test.c \
-logic.c \
-bitwise_shifts.c \
-bitwise.c \
+					addition.c \
+					comma.c \
+					multiplication.c \
+					compare.c \
+					equality_test.c \
+					logic.c \
+					bitwise_shifts.c \
+					bitwise.c \
+					ast_tools.c \
 
 LIBFILE			=	ft_strlower.c \
 					ft_isupper.c

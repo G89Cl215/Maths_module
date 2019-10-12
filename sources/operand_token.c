@@ -6,7 +6,7 @@
 /*   By: tgouedar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/09 11:41:38 by tgouedar          #+#    #+#             */
-/*   Updated: 2019/10/11 17:44:53 by tgouedar         ###   ########.fr       */
+/*   Updated: 2019/10/11 20:52:00 by tgouedar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,9 +54,9 @@ static int		ft_arg_value_base(char *base, char *nbr, int64_t *value)
 //		print_error("invalid_number"));
 		return (CONV_FAIL);
 	}
-	if (ft_isnumber(base)
-		base_len = ft_atoi(base))
-	if (base < 1 || base > 64)
+	if (ft_isnumber(base))
+		base_len = ft_atoi(base);
+	if (base_len < 2 || base_len > 64)
 	{
 //		print_error("invalid arithmetic base"));
 		return (CONV_FAIL);
