@@ -6,7 +6,7 @@
 /*   By: tgouedar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/09 15:01:05 by tgouedar          #+#    #+#             */
-/*   Updated: 2019/10/12 18:07:50 by tgouedar         ###   ########.fr       */
+/*   Updated: 2019/10/13 07:49:17 by tgouedar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,5 +38,6 @@ int				ft_eval_ast(t_maths_ast *ast, int64_t *res, char flag);
 t_maths_ast		*ft_new_mathast_node(t_maths_list *tokens);
 int				eval_expression(t_maths_ast *, int64_t *); // a ecrire
 size_t			ft_ast_depth(const t_maths_ast *ast);
+int				ft_maths_parser(t_maths_list *list);
 
 #endif

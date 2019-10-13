@@ -6,7 +6,7 @@
 /*   By: tgouedar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/09 11:33:24 by tgouedar          #+#    #+#             */
-/*   Updated: 2019/10/12 19:13:03 by tgouedar         ###   ########.fr       */
+/*   Updated: 2019/10/13 07:49:20 by tgouedar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,8 @@ int			ft_eval(char *expr, int64_t *res)
 		return (CONV_FAIL);
 
 	ft_putendl("apres lexer\n");
-	//ft_unary_op(list); //suite de + et de -
+	if (ft_maths_parser(list) == CONV_FAIL)
+		return (CONV_FAIL);
 	ast = ft_new_mathast_node(list);
 
 	{
