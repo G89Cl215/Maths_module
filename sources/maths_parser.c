@@ -6,7 +6,7 @@
 /*   By: tgouedar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 19:24:31 by tgouedar          #+#    #+#             */
-/*   Updated: 2019/10/13 07:52:58 by tgouedar         ###   ########.fr       */
+/*   Updated: 2019/10/13 08:03:08 by tgouedar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,7 @@ static int		ft_parse_incr(t_maths_list *list)
 	voyager = list;
 	if (!(tmp = voyager->next))
 		return (voyager->content->prio ? CONV_FAIL : CONV_SUCCESS);
-	if (voyager->content->prio == INCR_PRIO
-	&& (tmp->content->prio))
+	if (voyager->content->prio == INCR_PRIO && (tmp->content->prio))
 		ft_unary_split(voyager);
 	while (voyager)
 	{
@@ -83,12 +82,31 @@ static int		ft_parse_assign(t_maths_list *list)
 	return (CONV_SUCCESS);
 }
 
+static void		ft_interpret_incr(t_maths_list *list)
+{
+	t_maths_list		*tmp;
+	t_maths_list		*voyager;
+
+	voyager = list;
+	tmp = voyager->next;
+	if (voyager->content->prio == INCR_PRIO && !(tmp->content->prio))
+		voyager->content->prio == PREINCR_PRIO;
+	while (voyager)
+	{
+		voyager = voyager->next;
+		if (voyager->content->prio == INCR_PRIO && !(tmp->content->prio))
+			voyager->content->prio == PREINCR_PRIO;
+	}
+}
+
 int				ft_maths_parser(t_maths_list *list)
 {
+	if (!list)
+		return (CONV_SUCCESS);
 	if (ft_parse_assign(list) == CONV_FAIL)
 		return (CONV_FAIL); // assignations imbriquees;
 	if (ft_parse_incr(list) == CONV_FAIL)
 		return (CONV_FAIL);
-//	ft_interpret_incr(list);
+	ft_interpret_incr(list);
 	return (CONV_SUCCESS);
 }
