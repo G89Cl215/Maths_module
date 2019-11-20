@@ -6,7 +6,7 @@
 /*   By: tgouedar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/02 14:48:38 by tgouedar          #+#    #+#             */
-/*   Updated: 2019/10/13 07:49:20 by tgouedar         ###   ########.fr       */
+/*   Updated: 2019/11/20 21:44:57 by tgouedar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ int			ft_maths_expansion(char *to_expand, char **expansion)
 	int				par;
 	int64_t			res;
 
-	*expansion = NULL;
 	ft_putendl("entree d'extension");
 	if ((par = ft_parentheses_nbr(to_expand)) < 0)
 	{
@@ -35,7 +34,8 @@ int			ft_maths_expansion(char *to_expand, char **expansion)
 	while (par > 0)
 	{
 		ft_putendl("\navant eval inter_parenthes");
-		to_expand = ft_eval_inner_parentheses(to_expand);
+		if (!(to_expand = ft_eval_inner_parentheses(to_expand)))
+			return (MATHS_ERROR);
 		ft_putendl("apres eval inter_parenthes\n");
 		par--;
 	}

@@ -6,7 +6,7 @@
 /*   By: tgouedar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/02 13:08:40 by tgouedar          #+#    #+#             */
-/*   Updated: 2019/10/12 18:07:52 by tgouedar         ###   ########.fr       */
+/*   Updated: 2019/11/20 15:06:28 by tgouedar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ t_maths_op		g_maths[] =
 	{"~", ft_bitwise_neg, NEG_PRIO, NO_TOKEN, MANDATORY_TOKEN},
 	{"|", ft_bitwise_or, BWAND_PRIO, MANDATORY_TOKEN, MANDATORY_TOKEN},
 	{"&", ft_bitwise_and, BWOR_PRIO, MANDATORY_TOKEN, MANDATORY_TOKEN},
+//`	{"=", ft_assign, ASSIGN_PRIO, MANDATORY_TOKEN, MANDATORY_TOKEN},
 	{"^", ft_bitwise_xor, BWXOR_PRIO, MANDATORY_TOKEN, MANDATORY_TOKEN},
 	{",", ft_comma, COMMA_PRIO, MANDATORY_TOKEN, MANDATORY_TOKEN},
 	{NULL, NULL, 0, 0, 0}

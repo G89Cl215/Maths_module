@@ -6,7 +6,7 @@
 /*   By: tgouedar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/02 14:35:39 by tgouedar          #+#    #+#             */
-/*   Updated: 2019/10/13 08:03:09 by tgouedar         ###   ########.fr       */
+/*   Updated: 2019/11/20 15:01:27 by tgouedar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@
 # define MANDATORY_TOKEN	1
 # define NO_TOKEN			2
 # define POSSIBLY_TOKEN		3
-
 
 # define INCR_PRIO			1
 # define POSTCR_PRIO		1

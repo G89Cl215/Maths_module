@@ -6,7 +6,7 @@
 /*   By: tgouedar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/09 11:33:24 by tgouedar          #+#    #+#             */
-/*   Updated: 2019/10/13 07:49:20 by tgouedar         ###   ########.fr       */
+/*   Updated: 2019/11/20 22:06:31 by tgouedar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ int		ft_eval_ast(t_maths_ast *ast, int64_t *res, char flag)
 	else
 		ft_putendl("vide");
 	}
+	
+	
 	if (ast->tokens && (t_maths_token*)ast->tokens->content && flag != NO_TOKEN)
 		return (ft_arg_value(((t_maths_token*)ast->tokens->content)->token, res));
 	if (flag != MANDATORY_TOKEN)
@@ -119,6 +121,8 @@ char		*ft_eval_inner_parentheses(char *expr)
 	{
 		expr[end_par] = '\0';
 		len = ft_strlen(expr + inner_par);
+//		if (!(*(expr + inner_par + 1)))
+//			return (NULL);
 		if (ft_eval(expr + inner_par + 1, &conv) == CONV_FAIL)
 		{
 //			print_error(error de conv)

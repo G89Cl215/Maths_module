@@ -6,7 +6,7 @@
 /*   By: tgouedar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/09 18:34:42 by tgouedar          #+#    #+#             */
-/*   Updated: 2019/10/13 06:27:04 by tgouedar         ###   ########.fr       */
+/*   Updated: 2019/11/20 13:56:55 by tgouedar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,5 @@ int		main(int ac, char **av)
 		else
 			printf("ERROR\n");
 	}
-	while (1)
-		;
 	return (0);
 }

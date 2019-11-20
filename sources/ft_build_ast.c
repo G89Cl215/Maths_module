@@ -6,7 +6,7 @@
 /*   By: tgouedar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/09 15:51:16 by tgouedar          #+#    #+#             */
-/*   Updated: 2019/10/12 19:12:52 by tgouedar         ###   ########.fr       */
+/*   Updated: 2019/11/20 14:43:01 by tgouedar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ t_maths_list	*ft_get_max_prio(t_maths_list *list)
 	while (list)
 	{
 		cur_prio = ((t_maths_token*)list->content)->prio;
-		if ((cur_prio) && cur_prio > prio)
+		if ((cur_prio) && cur_prio >= prio)
 		{
 			prio = cur_prio;
 			res = list;

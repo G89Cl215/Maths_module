@@ -6,7 +6,7 @@
 /*   By: tgouedar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/09 11:41:38 by tgouedar          #+#    #+#             */
-/*   Updated: 2019/10/11 20:52:00 by tgouedar         ###   ########.fr       */
+/*   Updated: 2019/11/20 22:05:28 by tgouedar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,20 +21,6 @@ int				ft_isnumber(char *to_test)
 	while (to_test[i])
 	{
 		if (!(ft_isdigit(to_test[i])))
-			return (0);
-		i++;
-	}
-	return (1);
-}
-
-int				ft_isnumber_base(char *to_test, const char *base)
-{
-	size_t	i;
-
-	i = 0;
-	while (to_test[i])
-	{
-		if (!(ft_isin(to_test[i], base)))
 			return (0);
 		i++;
 	}
@@ -63,7 +49,9 @@ static int		ft_arg_value_base(char *base, char *nbr, int64_t *value)
 	}
 	ft_memcpy(conv_base, BASE, base_len);
 	conv_base[base_len] = '\0';
-	ft_putstr("On trouve la base: ");
+	ft_putstr("On trouve le nombre: ");
+	ft_putendl(nbr);
+	ft_putstr("exprime dans la base: ");
 	ft_putendl(conv_base);
 	if (base_len < 37)
 		ft_strlower(nbr);
@@ -83,14 +71,14 @@ int				ft_arg_value(char *token, int64_t *value)
 	
 	if (ft_isdigit(*token))
 		return (ft_int64_convert(value, token, NULL));
-//	expr = get_var(token);
+//	expr = get_shvar(token);
 //	if (ft_ismaths(expr))
-//		return ();
-	if (ft_isnumber(expr))	// pas tout a fait -> evaluation de la variable -> il peut y avoir des bases, des operations...
-	{
-		*value = ft_int64_convert(value, token, NULL);
-		return (CONV_SUCCESS);
-	}
-//	print_error("value too great for base");
+//	{
+//		if (ft_maths_expansion(expr, &expr) == MATHS_SUCCESS)
+//			return(ft_int64_convert(value, expr, NULL);
+//	}
+//	if (ft_isnumber(expr))	// pas tout a fait -> evaluation de la variable
+//		return (ft_int64_convert(value, token, NULL));
+	*value = 0;
 	return (CONV_FAIL);
 }
